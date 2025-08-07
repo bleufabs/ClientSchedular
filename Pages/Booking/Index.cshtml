@@ -1,0 +1,34 @@
+@page
+@model AndysApp.Pages.Booking.IndexModel
+@{
+    ViewData["Title"] = "Book an Appointment";
+}
+
+<h2>Book an Appointment</h2>
+
+<form method="post">
+    <div>
+        <label for="Name">Full Name</label>
+        <input asp-for="Appointment.Name" />
+    </div>
+    <div>
+        <label for="Email">Email</label>
+        <input asp-for="Appointment.Email" />
+    </div>
+    <div>
+        <label for="RequestedDateTime">Preferred Date & Time</label>
+        <input asp-for="Appointment.RequestedDateTime" type="datetime-local" />
+    </div>
+    <div>
+        <label for="ServiceRequested">Service</label>
+        <input asp-for="Appointment.ServiceRequested" />
+    </div>
+    <div>
+        <button type="submit">Request Appointment</button>
+    </div>
+</form>
+
+@if (Model.SuccessMessage != null)
+{
+    <p style="color:green">@Model.SuccessMessage</p>
+}
